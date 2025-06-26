@@ -1,0 +1,131 @@
+React is a JavaScript library for building user interfaces (UI), primarily for web applications. It focuses on creating fast interactive, and reusable UI components.
+React was developed by Facebook and released in 2013. It is now open-source and widely used by companies like Meta, Netflix, Instagram, Airbnb, and many more.
+
+characteristics:
+ - component based means UI is broken into small peaces known as components.
+ - react uses the lightweight in-memory tree known as virtual DOM(Docomunt Object Model - represent the web page into structured way) to quickly update only the part of the page that change.
+ - data flow in one direction, making app more predictible and easy to debug.
+ - syntax of react is the combination of the JavaScript and HTML like code known as JSX(JavaScript XML) syntax.
+
+React provide fast performance, reusable components, pridictible UI, strong ecosystem, cross platform support.
+
+SPA(Single Page Application):
+A Single Page Application (SPA) is a type of web application where:
+ - The entire application runs on a single HTML page.
+ - Only parts of the page are updated dynamically based on user interaction.
+ - The browser does not reload the entire page on navigation or interaction.
+ - Data is fetched using APIs (e.g., AJAX, Fetch) and the UI updates without a full refresh.
+
+Environment Setup for React:
+
+    Install Node.js and npm
+    React requires Node.js and npm (Node Package Manager) to run.
+
+    Check if Node.js is installed:
+
+    Open your terminal/command prompt and run:
+        node -v
+        npm -v
+
+    If versions appear, you're good to go. If not download and install it.
+
+    Optional: Install Yarn (Alternative to npm)
+    Yarn is an alternative package manager to npm, known for speed and reliability.
+
+    To install Yarn globally:
+        npm install -g yarn
+
+    Check version:
+        yarn -v
+
+    You can use either npm or yarn based on preference (both work with React).
+
+Install create-react-app
+create-react-app is the easiest way to set up a new React project with zero configuration.
+
+    Using npx (Recommended, no global install needed):
+        npx create-react-app my-app
+    
+    If you want to install it globally (Optional):
+        npm install -g create-react-app
+        create-react-app my-app
+
+    Navigate into your project and start development server:
+        cd my-app
+        npm start
+
+    or with Yarn:
+        cd my-app
+        yarn start
+
+Run create-react-app Using VS Code
+    Open VS Code
+    
+    Open Terminal in VS Code
+
+    Navigate to the Folder Where You Want Your Project
+    Example:
+        cd D:\ReactProjects
+
+    Run create-react-app Using npx
+    Example:
+        npx create-react-app my-app
+
+    Navigate Into Your Project
+    cd my-app
+
+    Start the React Development Server
+    npm start
+
+Typical React Project Structure
+    When you run:
+        npx create-react-app my-app
+        cd my-app
+
+    You'll see:
+        my-app/
+        ├── node_modules/
+        ├── public/
+        │   ├── index.html
+        │   └── favicon.ico
+        ├── src/
+        │   ├── App.css
+        │   ├── App.js
+        │   ├── App.test.js
+        │   ├── index.css
+        │   ├── index.js
+        │   ├── logo.svg
+        │   └── reportWebVitals.js
+        ├── .gitignore
+        ├── package.json
+        ├── README.md
+        └── yarn.lock / package-lock.json
+
+    node_modules/
+        Contains all the project dependencies.
+        Auto-generated; never edit manually.
+
+    public/
+        Contains static files.
+        index.html:
+            The only HTML file.
+            React injects your app inside the <div id="root"></div>.
+    
+    src/
+        All your React code lives here.
+        App.js - Main component of your application; rendered inside index.js
+        App.css	- Styling for App.js
+        index.js - Entry point for React; renders <App /> inside index.html
+        index.css - Global styles (optional)
+        logo.svg - Example logo used in the starter template
+        reportWebVitals.js - Measures performance (optional for beginners)
+        App.test.js - Testing file (can delete if not testing right away)
+
+    package.json
+        Lists project metadata, dependencies, and scripts.
+
+    .gitignore
+        Lists files/folders to exclude from version control (e.g., node_modules).
+
+    README.md
+        Initial documentation for your project.
