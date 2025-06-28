@@ -79,19 +79,6 @@ Run create-react-app Using VS Code
     Start the React Development Server
     npm start
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 Typical React Project Structure
     When you run:
         npx create-react-app my-app
