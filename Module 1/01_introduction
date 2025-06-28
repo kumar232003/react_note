@@ -1,7 +1,9 @@
+MODULE 1 : Introduction to React (Beginner)
+
 React is a JavaScript library for building user interfaces (UI), primarily for web applications. It focuses on creating fast interactive, and reusable UI components.
 React was developed by Facebook and released in 2013. It is now open-source and widely used by companies like Meta, Netflix, Instagram, Airbnb, and many more.
 
-characteristics:
+Characteristics:
  - component based means UI is broken into small peaces known as components.
  - react uses the lightweight in-memory tree known as virtual DOM(Docomunt Object Model - represent the web page into structured way) to quickly update only the part of the page that change.
  - data flow in one direction, making app more predictible and easy to debug.
@@ -77,6 +79,19 @@ Run create-react-app Using VS Code
     Start the React Development Server
     npm start
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 Typical React Project Structure
     When you run:
         npx create-react-app my-app
@@ -104,14 +119,12 @@ Typical React Project Structure
     node_modules/
         Contains all the project dependencies.
         Auto-generated; never edit manually.
-
-    public/
+   public/
         Contains static files.
         index.html:
             The only HTML file.
             React injects your app inside the <div id="root"></div>.
-    
-    src/
+   src/
         All your React code lives here.
         App.js - Main component of your application; rendered inside index.js
         App.css	- Styling for App.js
@@ -129,3 +142,163 @@ Typical React Project Structure
 
     README.md
         Initial documentation for your project.
+
+First react component:
+    Components are the building blocks of any React app.
+
+    Step1: create a custom component.
+        create a greeting.js file inside the src/
+
+        function Greeting() {
+            return (
+                <div>
+                    <h2>Hello, I am your first custom component!</h2>
+                </div>
+            );
+        }
+        export default Greeting;
+
+    Step 2 : use it inside the App.js:
+
+    import './App.css';
+    import Greeting from './Greeting';
+    function App() {
+        return (
+            <div className="App">
+                <h1>React Learning Starts Here.</h1>
+                <Greeting />
+            </div>
+        );
+    }
+    export default App;
+
+
+JSX syntax:
+ - JSX let you write the HTML like code in the JavaScript file.
+ - JSX make easy to describe the UI Structure.
+ - browser don't understand the JSX directly, it get converted to the plane js code.
+
+Example:
+    function App() {
+        return (
+            <div>
+                <h1>Hello, JSX!</h1>
+                <p>This is written inside a React component.</p>
+            </div>
+        );
+    }
+
+    in plane text:
+    React.createElement('div', null,
+        React.createElement('h1', null, 'Hello, JSX!'),
+        React.createElement('p', null, 'This is written inside a React component.')
+    );
+
+JSX rule:
+1. Must return a single parent element.
+    element should be wrap in a parent like <div> or <>(react fragment)
+    return(
+        <>
+            <h1>hello</h1>
+        </>
+    );
+
+2. use className instead of class because class is reserved word in JavaScript.
+    return <div className="container">Hello</div>;
+
+3. you can embed JavaScript code inside the {}.
+    const name = "aditya";
+    return <h2>name = {name}!</h2>
+
+4. self closing tag must end with /.
+    <img src="logo.png" alt="Logo" />
+    <br />
+
+5. JSX support JavaScript outside return.
+
+Functional Components:
+    These are simple JavaScript functions that return JSX.
+    They are the modern and recommended way to write React components.
+    More concise and readable
+    Preferred in modern React development
+
+    Example:
+
+        function Welcome() {
+            return <h1>Hello from Functional Component!</h1>;
+        }
+
+Class Components
+    These use ES6 class syntax and extend from React.Component.
+    This was the traditional way before Hooks were introduced.
+
+    Example:
+
+        import React, { Component } from 'react';
+
+        class Welcome extends Component {
+            render() {
+                return <h1>Hello from Class Component!</h1>;
+            }
+        }
+
+React recommends Functional Components for most situations.
+
+Rendering Elements:
+ - means displaying elements on the screen.
+ - when data or state change the react re-render only the part of the UI that need updating.
+
+Example: re-renders components when state updates:
+    import { useState } from 'react';
+
+    function Counter() {
+      const [count, setCount] = useState(0);
+
+      return (
+        <div>
+          <h2>Count: {count}</h2>
+          <button onClick={() => setCount(count + 1)}>Increase</button>
+        </div>
+      );
+    }
+
+ - If you are rendering multiple element the use react fragment(<> </>) to avoid unnecessary extra div tag.
+
+ - rendering array with .map():
+    const fruits = ["Apple", "Banana", "Orange"];
+
+    return (
+      <ul>
+        {fruits.map((fruit, index) => (
+          <li key={index}>{fruit}</li>
+        ))}
+      </ul>
+    );
+
+Embedding Expressions:
+    In JSX, you can insert dynamic values or JavaScript expressions directly inside your HTML-like code using { } curly braces.
+    Expressions can be varible, string, mathematical calculations, function call, conditional logic.
+
+    Example: 
+        function Expression() {
+          const name = "Aditya Kumar"; // Declaring a variable with a string value
+          const currentYear = new Date().getFullYear(); // Getting the current year
+
+          return (
+            <div>
+              {/* Embedding the 'name' variable inside JSX */}
+              <h1>Welcome, {name}!</h1>
+
+              {/* Embedding the result of a JavaScript expression */}
+              <p>The current year is {currentYear}.</p>
+
+              {/* Performing a calculation inside JSX */}
+              <p>2 + 2 = {2 + 2}</p>
+
+              {/* Using a function call within JSX */}
+              <p>Random number: {Math.random()}</p>
+            </div>
+          );
+        }
+
+        export default Expression;
